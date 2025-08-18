@@ -31,15 +31,15 @@ pipeline {
                 }
             }
         }
-//         stage('Install Dependencies') {
-//             steps {
-//                 script {
-//                    sh """
-//                         npm install
-//                    """
-//                 }
-//             }
-//         }
+        stage('Install Dependencies') {
+            steps {
+                script {
+                   sh """
+                        npm install
+                   """
+                }
+            }
+        }
 //         stage('Docker Build') {
 //             steps {
 //                 script {
