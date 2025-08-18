@@ -2,13 +2,13 @@ pipeline {
     agent  {
         label 'AGENT-1'
     }
-    // environment {
-    //     appVersion = ''
-    //     REGION = "us-east-1"
-    //     ACC_ID = "315069654700"
-    //     PROJECT = "roboshop"
-    //     COMPONENT = "catalogue"
-    // }
+    environment {
+        appVersion = ''
+        // REGION = "us-east-1"
+        // ACC_ID = "315069654700"
+        // PROJECT = "roboshop"
+        // COMPONENT = "catalogue"
+    }
     options {
         timeout(time: 30, unit: 'MINUTES') 
         disableConcurrentBuilds()
