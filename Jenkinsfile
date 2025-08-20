@@ -2,7 +2,7 @@ pipeline {
     agent  {
         label 'AGENT-1'
     }
-    environment {
+    environment { 
         appVersion = ''
         REGION = "us-east-1"
         ACC_ID = "334864977755"
@@ -12,6 +12,9 @@ pipeline {
     options {
         timeout(time: 30, unit: 'MINUTES') 
         disableConcurrentBuilds()
+    }
+    parameters {
+        booleanParam(name: 'deploy', defaultValue: false, description: 'Toggle this value')
     }
     // Build
     stages {
@@ -24,12 +27,20 @@ pipeline {
                 }
             }
         }
-    }
         stage('Install Dependencies') {
             steps {
                 script {
                    sh """
                         npm install
+                   """
+                }
+            }
+        }
+        stage('Unit Testing') {
+            steps {
+                script {
+                   sh """
+                        echo "unit tests"
                    """
                 }
             }
@@ -47,18 +58,35 @@ pipeline {
                 }
             }
         }
+        stage('Trigger Deploy') {
+            when{
+                expression { params.deploy }
+            }
+            steps {
+                script {
+                    build job: 'catalogue-cd',
+                    parameters: [
+                        string(name: 'appVersion', value: "${appVersion}"),
+                        string(name: 'deploy_to', value: 'dev')
+                    ],
+                    propagate: false,  // even SG fails VPC will not be effected
+                    wait: false // VPC will not wait for SG pipeline completion
+                }
+            }
+        }
         
     }
-//     post { 
-//         always { 
-//             echo 'I will always say Hello again!'
-//             deleteDir()
-//         }
-//         success { 
-//             echo 'Hello Success'
-//         }
-//         failure { 
-//             echo 'Hello Failure'
-//         }
-//     }
-// }
+
+    post { 
+        always { 
+            echo 'I will always say Hello again!'
+            deleteDir()
+        }
+        success { 
+            echo 'Hello Success'
+        }
+        failure { 
+            echo 'Hello Failure'
+        }
+    }
+}
