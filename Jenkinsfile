@@ -15,7 +15,7 @@ pipeline {
     }
     // parameters {
     //     booleanParam(name: 'deploy', defaultValue: false, description: 'Toggle this value')
-    }
+    // }
     // Build
     stages {
         stage('Read package.json') {
@@ -163,18 +163,18 @@ pipeline {
     //         }
     //     }
         
-    // }
+    }
 
-    // post { 
-    //     always { 
-    //         echo 'I will always say Hello again!'
-    //         deleteDir()
-    //     }
-    //     success { 
-    //         echo 'Hello Success'
-    //     }
-    //     failure { 
-    //         echo 'Hello Failure'
-    //     }
-    // }
+    post { 
+        always { 
+            echo 'I will always say Hello again!'
+            deleteDir()
+        }
+        success { 
+            echo 'Hello Success'
+        }
+        failure { 
+            echo 'Hello Failure'
+        }
+    }
 }
