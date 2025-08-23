@@ -36,15 +36,15 @@ pipeline {
                 }
             }
         }
-    //     stage('Unit Testing') {
-    //         steps {
-    //             script {
-    //                sh """
-    //                     echo "unit tests"
-    //                """
-    //             }
-    //         }
-    //     }
+        stage('Unit Testing') {
+            steps {
+                script {
+                   sh """
+                        echo "unit tests"
+                   """
+                }
+            }
+        }
     //     /* stage('Sonar Scan') {
     //         environment {
     //             scannerHome = tool 'sonar-7.2'
