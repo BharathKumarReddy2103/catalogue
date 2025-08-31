@@ -1,4 +1,4 @@
-# Catalogue Microservice - Continuous Integration (CI)
+# Roboshop Catalogue Microservice - Continuous Integration (CI)
 
 This repository contains the Continuous Integration (CI) pipeline and source code for the **Catalogue** service. It is designed to automate the building, testing, and delivery of the Catalogue micro service using modern DevOps practices.
 
