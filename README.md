@@ -14,6 +14,10 @@ This repository contains the Continuous Integration (CI) pipeline and source cod
 - Containerized application deployment using Docker.
 - Easily extendable for future enhancements or additional stages in the pipeline.
 
+## Jenkins Shared Library
+
+This project leverages a centralized [Jenkins Shared Library](https://github.com/BharathKumarReddy2103/jenkins-shared-library) for consistent and reusable CI/CD pipeline steps across multiple services. The shared library abstracts common pipeline logic, making it easier to maintain and scale DevOps workflows.
+
 ## Repository Structure
 
 ```
