@@ -45,19 +45,19 @@ pipeline {
                 }
             }
         }
-        stage('Sonar Scan') {
-            environment {
-                scannerHome = tool 'sonar-8.0'
-            }
-            steps {
-                script {
-                   // Sonar Server envrionment
-                   withSonarQubeEnv(installationName: 'sonar-8.0') {
-                         sh "${scannerHome}/bin/sonar-scanner"
-                   }
-                }
-            }
-        }
+        // stage('Sonar Scan') {
+        //     environment {
+        //         scannerHome = tool 'sonar-8.0'
+        //     }
+        //     steps {
+        //         script {
+        //            // Sonar Server envrionment
+        //            withSonarQubeEnv(installationName: 'sonar-8.0') {
+        //                  sh "${scannerHome}/bin/sonar-scanner"
+        //            }
+        //         }
+        //     }
+        // }
         // Enable webhook in sonarqube server and wait for results
         // stage("Quality Gate") {
         //     steps {
