@@ -29,6 +29,9 @@ let mongoConnected = false;
 
 const app = express();
 
+// Disable Express version disclosure
+app.disable('x-powered-by');
+
 app.use(expLogger);
 
 app.use((req, res, next) => {
